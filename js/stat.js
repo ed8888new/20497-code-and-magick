@@ -22,7 +22,6 @@ window.renderStatistics = function (ctx, names, times) {
     var time = times[i];
     if (time > max) {
       max = time;
-      maxIndex = i;
     }
   }
 
