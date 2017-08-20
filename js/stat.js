@@ -26,14 +26,14 @@ window.renderStatistics = function (ctx, names, times) {
       maxIndex = i;
     }
   }
-debugger;
-  var histogramWidth = 150;              // px;
-  var step = histogramWidth / (max - 0); // px;
 
-  var barHeigth = 40; // px;
-  var indent = 90;    // px;
-  var initialX = 140; // px;
-  var initialY = 100;  // px;
+  var histogramWidth = 150;
+  var step = histogramWidth / (max - 0);
+
+  var barHeigth = 40;
+  var indent = 90;
+  var initialX = 140;
+  var initialY = 100;
   var you = 'Вы';
   var rateY = 1.1;
   var colors = function () {
@@ -42,16 +42,16 @@ debugger;
     var b = 134;
     var a = 1 * Math.random();
     return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
-};
+  };
 
   ctx.textBaseline = 'top'; // положение надписи от левого верхнего угла
   for(var i = 0; i < times.length; i++) {
     ctx.fillStyle = 'black';
     ctx.fillText(Math.floor(times[i]), initialX + indent * i, (histogramWidth - times[i] * step) + indent * 0.85);
-    ctx.fillText(names[i], initialX + indent * i, histogramWidth + indent * rateY);
+    ctx.fillText( names[i], initialX + indent * i, histogramWidth + indent * rateY );
     if (names[i]===you) {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else { ctx.fillStyle = colors(); }
-    ctx.fillRect(initialX + indent * i, (histogramWidth - times[i] * step) + indent * rateY, barHeigth, times[i] * step);
-    }
+    ctx.fillRect( initialX + indent * i, (histogramWidth - times[i] * step) + indent * rateY, barHeigth, times[i] * step );
+  }
 };
