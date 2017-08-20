@@ -17,7 +17,6 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Список результатов:', 120, 60);
 
   var max = -1;
-  var maxIndex = -1;
 
   for (var i = 0; i < times.length; i++) {
     var time = times[i];
@@ -47,7 +46,7 @@ window.renderStatistics = function (ctx, names, times) {
   for (i = 0; i < times.length; i++) {
     ctx.fillStyle = 'black';
     ctx.fillText(Math.floor(times[i]), initialX + indent * i, (histogramWidth - times[i] * step) + indent * 0.85);
-    ctx.fillText (names[i], initialX + indent * i, histogramWidth + initialY);
+    ctx.fillText(names[i], initialX + indent * i, histogramWidth + initialY);
     if (names[i] === you) {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
