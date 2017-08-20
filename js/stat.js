@@ -35,6 +35,7 @@ debugger;
   var initialX = 140; // px;
   var initialY = 100;  // px;
   var you = 'Вы';
+  var rateY = 1.1;
   var colors = function () {
     var r = 2;
     var g = 14;
@@ -46,11 +47,11 @@ debugger;
   ctx.textBaseline = 'top'; // положение надписи от левого верхнего угла
   for(var i = 0; i < times.length; i++) {
     ctx.fillStyle = 'black';
-    ctx.fillText(Math.floor(times[i]), initialX + indent * i, (histogramWidth - times[i] * step) + indent * 0.75);
-    ctx.fillText(names[i], initialX + indent * i, histogramWidth + indent);
+    ctx.fillText(Math.floor(times[i]), initialX + indent * i, (histogramWidth - times[i] * step) + indent * 0.85);
+    ctx.fillText(names[i], initialX + indent * i, histogramWidth + indent * rateY);
     if (names[i]===you) {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else { ctx.fillStyle = colors(); }
-    ctx.fillRect(initialX + indent * i, (histogramWidth - times[i] * step) + indent, barHeigth, times[i] * step);
+    ctx.fillRect(initialX + indent * i, (histogramWidth - times[i] * step) + indent * rateY, barHeigth, times[i] * step);
     }
 };
