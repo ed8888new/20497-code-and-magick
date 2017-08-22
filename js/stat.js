@@ -3,20 +3,18 @@
 window.renderStatistics = function (ctx, names, times) {
 
   var drawRect = function (color, x, y, width, heigth) {
-    var fillStyle = ctx.fillStyle = color;
-    var strokeRect = ctx.strokeRect(x, y, width, heigth);
-    var fillRect = ctx.fillRect(x, y, width, heigth);
-    return fillStyle, strokeRect, fillRect;
-  }
+    ctx.fillStyle = color || '#000';
+    ctx.strokeRect(x, y, width, heigth);
+    ctx.fillRect(x, y, width, heigth);
+  };
 
   drawRect('rgba(0, 0, 0, 0.7)', 110, 20, 420, 270);
   drawRect('white', 100, 10, 420, 270);
 
-  var writeText = function (text, x, y, color='#000', font='16px PT Mono') {
-    var fillStyle = ctx.fillStyle = color;
-    var font = ctx.font = font;
-    var fillText = ctx.fillText(text, x, y);
-    return fillStyle, font, fillText;
+  var writeText = function (text, x, y, color, font) {
+    ctx.fillStyle = color || '#000';
+    ctx.font = font || '16px PT Mono';
+    ctx.fillText(text, x, y);
   }
 
   writeText('Ура вы победили!', 120, 40);
