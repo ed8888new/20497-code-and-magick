@@ -12,7 +12,6 @@ userDialog.classList.remove('hidden');
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
-debugger;
 
 var wizards = [
   {
@@ -46,7 +45,7 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < wizards.length; i++) {
